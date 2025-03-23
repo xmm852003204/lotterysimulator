@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lottery Simulator - Try Your Luck Without Losing Money</title>
+    <link rel="canonical" href="https://lotterysimulator.xyz">
+    <meta name="description" content="Experience the thrill of lottery without spending real money. A realistic simulator that shows you the odds of winning.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 添加苹果风格字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <head>
+        <!-- 其他标签 -->
+        <script src="js/i18n.js"></script>
+    </head>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Lottery Simulator</div>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#play" data-i18n="nav.play">Play Now</a></li>
+                    <li><a href="#odds" data-i18n="nav.odds">Odds</a></li>
+                    <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+                    <li class="language-selector">
+                        <select id="languageSelect" onchange="changeLanguage(this.value)">
+                            <option value="en">English</option>
+                            <option value="zh">中文</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-main">
+                    <h1 data-i18n="hero.title">Lottery Simulator</h1>
+                    <p class="tagline" data-i18n="hero.tagline">Experience the thrill of lottery without risking your money</p>
+                    <div class="cta-buttons">
+                        <a href="#play" class="cta-primary" data-i18n="hero.playButton">Play Now</a>
+                        <a href="#about" class="cta-secondary" data-i18n="hero.learnMore">Learn More</a>
+                    </div>
+                </div>
+                <!-- 在 categories-showcase 部分 -->
+                <div class="categories-showcase">
+                    <h3 data-i18n="explore.title">Explore More Games</h3>
+                    <div class="categories-grid">
+                        <a href="adventure/index.html" class="category-card">
+                            <div class="category-icon">🗡️</div>
+                            <h4 data-i18n="explore.adventure.title">Adventure</h4>
+                            <p data-i18n="explore.adventure.desc">Explore thrilling worlds</p>
+                        </a>
+                        <a href="#" class="category-card">
+                            <div class="category-icon">🧩</div>
+                            <h4 data-i18n="explore.puzzle.title">Puzzle</h4>
+                            <p data-i18n="explore.puzzle.desc">Challenge your mind</p>
+                        </a>
+                        <a href="#" class="category-card">
+                            <div class="category-icon">♟️</div>
+                            <h4>Strategy</h4>
+                            <p>Plan your victory</p>
+                        </a>
+                        <a href="#" class="category-card">
+                            <div class="category-icon">🎮</div>
+                            <h4>Simulation</h4>
+                            <p>Experience reality</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 data-i18n="about.title">About Lottery Simulator</h2>
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <p data-i18n="about.desc1">Lottery Simulator is an educational game that demonstrates the real odds of winning lottery games. Instead of spending your hard-earned money on actual lottery tickets, you can experience the same excitement virtually and learn about probability in the process.</p>
+                        <p data-i18n="about.desc2">This simulator was created to help people understand just how unlikely it is to win big lottery prizes, while still enjoying the fun of playing.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="lottery-tickets.jpg" alt="Lottery tickets illustration" class="feature-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="play" class="play-section">
+            <div class="container">
+                <h2 data-i18n="play.title">Play Lottery Simulator</h2>
+                <p class="section-intro" data-i18n="play.intro">Try your luck with our realistic lottery simulator and see if you can beat the odds!</p>
+                <div class="mobile-game-notice" data-i18n="play.notice">
+                    For the best gaming experience, rotate your device to landscape mode.
+                </div>
+                <div class="game-container">
+                    <iframe height="600" frameborder="0" src="https://itch.io/embed/765498" width="100%"><a href="https://lucas-tulio.itch.io/lottery-simulator">Lottery Simulator by lucas-tulio</a></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="odds" class="odds-section">
+            <div class="container">
+                <h2 data-i18n="odds.title">Understanding the Odds</h2>
+                <div class="odds-cards">
+                    <div class="odds-card">
+                        <h3>Powerball</h3>
+                        <p class="odds-number">1 in 292,201,338</p>
+                        <p>Chances of winning the jackpot</p>
+                    </div>
+                    <div class="odds-card">
+                        <h3>Mega Millions</h3>
+                        <p class="odds-number">1 in 302,575,350</p>
+                        <p>Chances of winning the jackpot</p>
+                    </div>
+                    <div class="odds-card">
+                        <h3>EuroMillions</h3>
+                        <p class="odds-number">1 in 139,838,160</p>
+                        <p>Chances of winning the jackpot</p>
+                    </div>
+                </div>
+                <p class="odds-explanation" data-i18n="odds.explanation">To put these numbers in perspective, you're more likely to be struck by lightning (1 in 15,300) or become a movie star (1 in 1,505,000) than win a major lottery jackpot.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo" data-i18n="footer.title">Lottery Simulator</div>
+                    <p class="footer-tagline" data-i18n="footer.tagline">Educational gaming for probability awareness</p>
+                    <p class="copyright" data-i18n="footer.copyright">© 2023 LotterySimulator.xyz. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#privacy" data-i18n="footer.privacy">Privacy Policy</a>
+                        <a href="#terms" data-i18n="footer.terms">Terms of Use</a>
+                        <a href="#contact" data-i18n="footer.contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3>Is this simulator accurate?</h3>
+                        <p>Yes, our simulator uses the actual odds and rules from real lottery games to provide an authentic experience.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I win real money?</h3>
+                        <p>No, this is just a simulator for educational and entertainment purposes. No real money can be won or lost.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Why should I use this simulator?</h3>
+                        <p>It's a fun way to experience lottery games without financial risk, while also learning about probability and statistics.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is the game free to play?</h3>
+                        <p>Yes, the simulator is completely free to play. No purchase necessary.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Lottery Simulator</div>
+                <p class="footer-tagline">Educational gaming for probability awareness</p>
+                <p class="copyright">© 2023 LotterySimulator.xyz. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Use</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 在body结束标签前添加JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // 点击导航链接后关闭菜单
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+
+        // 下拉菜单功能
+        document.querySelector('.dropdown-toggle').addEventListener('click', function(e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('open');
+        });
+
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.categories-dropdown')) {
+                document.querySelector('.categories-dropdown').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

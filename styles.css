@@ -1,0 +1,878 @@
+/* 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 苹果风格变量 */
+:root {
+    --apple-blue: #007AFF;
+    --apple-green: #34C759;
+    --apple-indigo: #5856D6;
+    --apple-orange: #FF9500;
+    --apple-pink: #FF2D55;
+    --apple-purple: #AF52DE;
+    --apple-red: #FF3B30;
+    --apple-teal: #5AC8FA;
+    --apple-yellow: #FFCC00;
+    --apple-gray1: #8E8E93;
+    --apple-gray2: #AEAEB2;
+    --apple-gray3: #C7C7CC;
+    --apple-gray4: #D1D1D6;
+    --apple-gray5: #E5E5EA;
+    --apple-gray6: #F2F2F7;
+    --apple-black: #000000;
+    --apple-white: #FFFFFF;
+    
+    --primary-color: var(--apple-blue);
+    --secondary-color: var(--apple-teal);
+    --accent-color: var(--apple-pink);
+    --background-color: var(--apple-white);
+    --text-color: #333333;
+    --light-text: #666666;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 导航栏样式 */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* 英雄区域样式 */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-primary, .cta-secondary {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-primary {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.cta-secondary {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* 内容包装器样式 */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* 英雄区域布局 */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-main {
+    flex: 1;
+}
+
+/* 侧边分类展示区 */
+.categories-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px 0 0 16px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    transition: transform 0.3s ease;
+    z-index: 90;
+}
+
+.categories-sidebar.collapsed {
+    transform: translate(290px, -50%);
+}
+
+.sidebar-toggle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle .toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.categories-sidebar.collapsed .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.category-card {
+    background: var(--apple-gray6);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.category-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.category-card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.category-card p {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-sidebar {
+        display: none;
+    }
+}
+.text-content, .image-content {
+    flex: 1;
+}
+
+.text-content p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.feature-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 游戏部分样式 */
+.play-section {
+    background-color: white;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-top: 10px;
+}
+
+.game-container iframe {
+    width: 100%;
+    border: none;
+    display: block;
+}
+
+/* 添加移动端游戏提示 */
+.mobile-game-notice {
+    display: none;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--apple-gray6);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+@media (max-width: 576px) {
+    .mobile-game-notice {
+        display: block;
+    }
+}
+
+/* 赔率部分样式 */
+.odds-section {
+    background-color: var(--apple-gray6);
+}
+
+.odds-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.odds-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.odds-card:hover {
+    transform: translateY(-10px);
+}
+
+.odds-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.odds-number {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.odds-explanation {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: var(--light-text);
+}
+
+/* FAQ部分样式 */
+.faq-section {
+    background-color: white;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--apple-gray5);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.faq-item p {
+    font-size: 18px;
+    color: var(--light-text);
+}
+
+/* 页脚样式 */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom:
+    /* 页脚样式（续） */
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--apple-gray5);
+}
+
+.footer-tagline {
+    font-size: 16px;
+    color: var(--apple-gray3);
+    margin-bottom: 20px;
+}
+
+.copyright {
+    font-size: 14px;
+    color: var(--apple-gray2);
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: var(--apple-gray3);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--apple-white);
+}
+
+/* 优化网站移动端适配性
+
+我将帮您优化网站在移动端的适配性，确保手机用户能够舒适地浏览和使用您的彩票模拟器网站。以下是一些关键的修改：
+
+## 1. 改进响应式设计
+
+首先，让我们优化CSS文件中的响应式设计部分：
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 48px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .odds-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .odds-card {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+    
+    .game-container iframe {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    nav ul li {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    h1 {
+        font-size: 40px;
+    }
+    
+    .tagline {
+        font-size: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .game-container iframe {
+        height: 450px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 32px;
+    }
+    
+    h2 {
+        font-size: 26px;
+    }
+    
+    .hero {
+        padding: 60px 0;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    nav ul li {
+        margin: 5px 10px;
+    }
+    
+    .faq-item h3 {
+        font-size: 20px;
+    }
+    
+    .faq-item p {
+        font-size: 16px;
+    }
+    
+    .text-content p {
+        font-size: 16px;
+    }
+    
+    .section-intro {
+        font-size: 16px;
+    }
+    
+    .game-container iframe {
+        height: 350px;
+    }
+    
+    .cta-buttons {
+        width: 100%;
+    }
+    
+    .cta-primary, .cta-secondary {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+/* 添加小屏幕手机的特殊优化 */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 28px;
+    }
+    
+    .hero {
+        padding: 50px 0;
+    }
+    
+    .tagline {
+        font-size: 18px;
+    }
+    
+    .game-container iframe {
+        height: 300px;
+    }
+    
+    .odds-card {
+        padding: 20px 15px;
+    }
+    
+    .odds-number {
+        font-size: 24px;
+    }
+}
+}
+
+/* 触摸优化 */
+@media (hover: none) {
+    .cta-primary, .cta-secondary, nav ul li a, .footer-links a {
+        padding: 12px 20px;
+        margin: 5px 0;
+    }
+    
+    nav ul li a, .footer-links a {
+        display: inline-block;
+        padding: 10px 15px;
+    }
+    
+    .odds-card:hover {
+        transform: none;
+    }
+    
+    .game-container:hover {
+        transform: none;
+    }
+    
+    /* 为触摸设备添加活跃状态 */
+    .cta-primary:active, .cta-secondary:active {
+        transform: scale(0.98);
+    }
+    
+    .odds-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero, section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 交互效果 */
+.game-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--apple-gray6);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--apple-gray3);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--apple-gray2);
+}
+
+/* 辅助功能增强 */
+a:focus, button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* 打印样式 */
+@media print {
+    header, footer, .cta-buttons, .game-container {
+        display: none;
+    }
+    
+    body {
+        color: black;
+        background: white;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* 移动端菜单样式 */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        margin: 15px 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+}
+
+/* 导航下拉菜单样式 */
+.categories-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.categories-dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    display: none;
+    z-index: 100;
+}
+
+.categories-dropdown.open .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    display: block;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--apple-gray6);
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: var(--apple-gray6);
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+/* 语言选择器样式 */
+.language-selector {
+    position: relative;
+    margin-left: 20px;
+}
+
+.language-selector select {
+    padding: 8px 30px 8px 15px;
+    border: 1px solid var(--apple-gray4);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+    color: var(--text-color);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+}
+
+.language-selector select:hover {
+    border-color: var(--primary-color);
+}
+
+.language-selector select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        margin: 15px 0;
+    }
+    
+    .language-selector select {
+        width: 200px;
+    }
+}

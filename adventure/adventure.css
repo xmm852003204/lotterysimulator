@@ -1,0 +1,325 @@
+/* 冒险游戏分类页面样式 */
+
+/* 冒险主题颜色 */
+:root {
+    --adventure-primary: #FF6B35;
+    --adventure-secondary: #F7C59F;
+    --adventure-accent: #2A9D8F;
+    --adventure-dark: #264653;
+    --adventure-light: #E9C46A;
+}
+
+/* 英雄区域样式 */
+.adventure-hero {
+    background: linear-gradient(135deg, var(--adventure-primary), var(--adventure-dark));
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.adventure-hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.adventure-hero .tagline {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 游戏筛选区域 */
+.game-filters {
+    background-color: var(--apple-gray6);
+    padding: 30px 0;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-box {
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--apple-gray4);
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box .search-btn {
+    background-color: var(--adventure-primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.search-box .search-btn:hover {
+    background-color: #e55a2a;
+}
+
+.filter-options {
+    display: flex;
+    gap: 15px;
+}
+
+.filter-options select {
+    padding: 12px 15px;
+    border: 1px solid var(--apple-gray4);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* 游戏网格区域 */
+.games-grid {
+    padding: 60px 0;
+}
+
+.games-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.coming-soon {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    background-color: var(--apple-gray6);
+    border-radius: 12px;
+    font-size: 18px;
+    color: var(--light-text);
+}
+
+/* 导航下拉菜单样式 */
+.categories-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.categories-dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    display: none;
+    z-index: 100;
+}
+
+.categories-dropdown.open .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    display: block;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover, .dropdown-menu a.active {
+    background-color: var(--apple-gray6);
+    color: var(--adventure-primary);
+}
+
+/* 游戏卡片样式 */
+.game-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.game-embed {
+    width: 100%;
+    background: #f5f5f5;
+    border-bottom: 1px solid var(--apple-gray5);
+}
+
+.game-embed iframe {
+    width: 100%;
+    display: block;
+}
+
+.game-info {
+    padding: 25px;
+}
+
+.game-info h3 {
+    font-size: 24px;
+    color: var(--adventure-dark);
+    margin-bottom: 15px;
+}
+
+.game-description {
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.game-controls {
+    background: var(--apple-gray6);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.game-controls h4 {
+    color: var(--adventure-primary);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.controls-list {
+    list-style: none;
+    padding: 0;
+}
+
+.controls-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.key {
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--adventure-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-features {
+    margin-top: 20px;
+}
+
+.game-features h4 {
+    color: var(--adventure-primary);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.game-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.game-features li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.game-features li::before {
+    content: "•";
+    color: var(--adventure-primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .game-info {
+        padding: 20px;
+    }
+    
+    .game-info h3 {
+        font-size: 20px;
+    }
+    
+    .game-controls, .game-features {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .game-embed iframe {
+        height: 140px;
+    }
+}
+
+
+/* 游戏封面样式 */
+.game-cover {
+    position: relative;
+}
+
+.cover-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.game-embed {
+    margin-top: -5px; /* 消除可能的间隙 */
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .cover-image {
+        height: 160px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cover-image {
+        height: 140px;
+    }
+}
